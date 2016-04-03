@@ -1,0 +1,17 @@
+environment:
+  nodejs_version: "5.8"
+
+install:
+  - npm install -g babel-cli eslint
+  - npm install react
+  - npm install
+
+test_script:
+  - node --version
+  - npm --version
+  - npm run test
+
+init:
+  - git config --global core.autocrlf true
+
+build: false

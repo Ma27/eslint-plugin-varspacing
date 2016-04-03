@@ -1,0 +1,29 @@
+{
+  "name": "eslint-plugin-varspacing",
+  "version": "1.0.0",
+  "description": "A eslint rule for proper var spacing",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./test/lib/rules --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sententiaregum/eslint-plugin-varspacing.git"
+  },
+  "keywords": [
+    "ESLint",
+    "Plugin",
+    "Variable",
+    "Alignment"
+  ],
+  "author": "Maximilian Bosch <maximilian.bosch.27@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Sententiaregum/eslint-plugin-varspacing/issues"
+  },
+  "homepage": "https://github.com/Sententiaregum/eslint-plugin-varspacing#readme",
+  "devDependencies": {
+    "eslint": "^2.6.0",
+    "mocha": "^2.4.5"
+  }
+}

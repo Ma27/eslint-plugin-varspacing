@@ -15,5 +15,10 @@ module.exports = {
     'var-spacing': require('./lib/rules/var-spacing.rule')
   },
   configs: {
+    recommended: {
+      rules: {
+        'varspacing/var-spacing': 2
+      }
+    }
   }
 };

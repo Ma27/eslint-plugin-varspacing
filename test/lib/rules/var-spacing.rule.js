@@ -145,6 +145,23 @@ ruleTester.run('var-spacing', rule, {
     parserOptions: {
       ecmaVersion: 6
     }
+  }, {
+    code: [
+      'var foo  = bar = {},',
+      '    blah = {};'
+    ].join('\n')
+  }, {
+    code: [
+      'var foo    =', // helpful in case of multiline expressions as some assignments would reach the 120 char limit
+      '    {};',
+      'var foobar = {};'
+    ].join('\n')
+  }, {
+    code: [
+      'var foo  = {},',
+      '    bar1 = [];',
+      'var lol  = [];'
+    ].join('\n')
   }],
   invalid: [{
     code: [
@@ -196,6 +213,40 @@ ruleTester.run('var-spacing', rule, {
       '    console.log(arguments);',
       '};',
       'var foobar = {};'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'var foo = bar = {};',
+      'var blah      = {};'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'var foo = bar = {},',
+      '    blah      = [];'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'var foo =', // helpful in case of multiline expressions as some assignments would reach the 120 char limit
+      '    {};',
+      'var foobar = {};'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'var foo = {},',
+      '    bar1 = [];',
+      'var lol = [];'
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'

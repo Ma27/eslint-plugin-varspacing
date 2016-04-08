@@ -4,7 +4,7 @@
   "description": "A eslint rule for proper var spacing",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./test/lib/rules --recursive",
+    "test": "mocha ./test/lib/rules --recursive --reporter dot",
     "lint": "eslint ./lib"
   },
   "repository": {

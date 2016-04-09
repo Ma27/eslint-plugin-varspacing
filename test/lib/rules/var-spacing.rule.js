@@ -169,6 +169,13 @@ ruleTester.run('var-spacing', rule, {
       '  this.foo  = [];',
       '}'
     ].join('\n')
+  }, {
+    code: [
+      'var obj = {};',
+      '',
+      'obj["foo"]  = {};',
+      'obj["blah"] = [];'
+    ].join('\n')
   }],
   invalid: [{
     code: [
@@ -264,6 +271,16 @@ ruleTester.run('var-spacing', rule, {
       '  this.blah = {};',
       '  this.foo = [];',
       '}'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'var obj = {};',
+      '',
+      'obj["foo"] = {};',
+      'obj["blah"] = [];'
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'

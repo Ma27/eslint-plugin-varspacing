@@ -176,6 +176,27 @@ ruleTester.run('var-spacing', rule, {
       'obj["foo"]  = {};',
       'obj["blah"] = [];'
     ].join('\n')
+  }, {
+    code: [
+      'var obj    = {};',
+      'obj["lol"] = [];'
+    ].join('\n')
+  }, {
+    code: [
+      'obj["lol"] = { foo: null };',
+      'var obj    = [];'
+    ].join('\n')
+  }, {
+    code: [
+      'var obj    = {},',
+      '    number = 5;',
+      'obj.foo    = [];'
+    ].join('\n')
+  }, {
+    code: [
+      'var obj1    = {}, number = 5;',
+      'obj1.foobar = [];'
+    ].join('\n')
   }],
   invalid: [{
     code: [
@@ -281,6 +302,39 @@ ruleTester.run('var-spacing', rule, {
       '',
       'obj["foo"] = {};',
       'obj["blah"] = [];'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'obj["foo"] = {};',
+      'var foo = [];'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'var obj = {};',
+      'obj["lol"] = [];'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'var obj = {},',
+      '    number = 5;',
+      'obj.foo = [];'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'var obj1 = {}, number = 5;',
+      'obj1.foobar = [];'
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'

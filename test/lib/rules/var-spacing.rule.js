@@ -260,6 +260,47 @@ ruleTester.run('var-spacing', rule, {
       'var foo = [], blah = true ? [] : {};',
       'foo     = blah;'
     ].join('\n')
+  }, {
+    code: [
+      'var foo = [];',
+      'var blah;',
+      'var bar22 = {};'
+    ].join('\n')
+  }, {
+    code: [
+      'var foo   = [],',
+      '    bar;',
+      'var bar22 = {};'
+    ].join('\n')
+  }, {
+    code: [
+      'var foo    = [];',
+      'var blah,',
+      '    foobar = {};'
+    ].join('\n')
+  }, {
+    code: [
+      'obj.expr = [];',
+      'var foo;',
+      'var blah22 = {};'
+    ].join('\n')
+  }, {
+    code: [
+      'obj.expr   = [],',
+      '    foo;',
+      'var blah22 = {};'
+    ].join('\n')
+  }, {
+    code: [
+      'obj.expr   = [];',
+      'var foo,',
+      '    blah22 = {};'
+    ].join('\n')
+  }, {
+    code: [
+      'obj.expr = {}, foo;',
+      'var blah = [];'
+    ].join('\n')
   }],
   invalid: [{
     code: [

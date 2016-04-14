@@ -162,6 +162,145 @@ ruleTester.run('var-spacing', rule, {
       '    bar1 = [];',
       'var lol  = [];'
     ].join('\n')
+  }, {
+    code: [
+      'function foo () {',
+      '  this.blah = {};',
+      '  this.foo  = [];',
+      '}'
+    ].join('\n')
+  }, {
+    code: [
+      'var obj = {};',
+      '',
+      'obj["foo"]  = {};',
+      'obj["blah"] = [];'
+    ].join('\n')
+  }, {
+    code: [
+      'var obj    = {};',
+      'obj["lol"] = [];'
+    ].join('\n')
+  }, {
+    code: [
+      'obj["lol"] = { foo: null };',
+      'var obj    = [];'
+    ].join('\n')
+  }, {
+    code: [
+      'var obj    = {},',
+      '    number = 5;',
+      'obj.foo    = [];'
+    ].join('\n')
+  }, {
+    code: [
+      'var obj1    = {}, number = 5;',
+      'obj1.foobar = [];'
+    ].join('\n')
+  }, {
+    code: [
+      'var foo  = true ? {} : [];',
+      'var blah = [];'
+    ].join('\n')
+  },{
+    code: [
+      'obj.expr = true ? {} : [];',
+      'var foo  = [];'
+    ].join('\n')
+  }, {
+    code: [
+      'var foo  = true ? {} : [];',
+      'obj.expr = [];'
+    ].join('\n')
+  }, {
+    code: [
+      'var foo  = bar = true ? {} : [];',
+      'obj.expr = [];'
+    ].join('\n')
+  }, {
+    code: [
+      'obj.expr = bar = true ? {} : [];',
+      'var bar  = [];'
+    ].join('\n')
+  }, {
+    code: [
+      'obj.expr = {};',
+      'for (var i = 0; i < 10; i++) {',
+      '}'
+    ].join('\n')
+  }, {
+    code: [
+      'var foo = true ? {} : [];',
+      'for (var i = 0; i < 10; i++) {',
+      '}'
+    ].join('\n')
+  }, {
+    code: [
+      'var foo  = {},',
+      '    bar  = [];',
+      'var blah = true ? [] : {};'
+    ].join('\n')
+  }, {
+    code: [
+      'var foo = {}, blah = [];',
+      'foo     = true ? [] : {}'
+    ].join('\n')
+  }, {
+    code: [
+      'var foo = true ? [] : {}, blah = [];',
+      'foo     = blah;'
+    ].join('\n')
+  }, {
+    code: [
+      'var foo, blah = true ? [] : {}',
+      'foo           = blah;'
+    ].join('\n')
+  }, {
+    code: [
+      'var foo = [], blah = true ? [] : {};',
+      'foo     = blah;'
+    ].join('\n')
+  }, {
+    code: [
+      'var foo = [];',
+      'var blah;',
+      'var bar22 = {};'
+    ].join('\n')
+  }, {
+    code: [
+      'var foo   = [],',
+      '    bar;',
+      'var bar22 = {};'
+    ].join('\n')
+  }, {
+    code: [
+      'var foo    = [];',
+      'var blah,',
+      '    foobar = {};'
+    ].join('\n')
+  }, {
+    code: [
+      'obj.expr = [];',
+      'var foo;',
+      'var blah22 = {};'
+    ].join('\n')
+  }, {
+    code: [
+      'obj.expr   = [],',
+      '    foo;',
+      'var blah22 = {};'
+    ].join('\n')
+  }, {
+    code: [
+      'obj.expr   = [];',
+      'var foo,',
+      '    blah22 = {};'
+    ].join('\n')
+  }, {
+    code: [
+      'obj.expr = {}, foo;',
+      'var blah = [];'
+    ].join('\n')
   }],
   invalid: [{
     code: [
@@ -247,6 +386,148 @@ ruleTester.run('var-spacing', rule, {
       'var foo = {},',
       '    bar1 = [];',
       'var lol = [];'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'function foo() {',
+      '  this.blah = {};',
+      '  this.foo = [];',
+      '}'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'var obj = {};',
+      '',
+      'obj["foo"] = {};',
+      'obj["blah"] = [];'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'obj["foo"] = {};',
+      'var foo = [];'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'var obj = {};',
+      'obj["lol"] = [];'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'var obj = {},',
+      '    number = 5;',
+      'obj.foo = [];'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'var obj1 = {}, number = 5;',
+      'obj1.foobar = [];'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'var foo = true ? {} : [];',
+      'var blah = [];'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'obj.expr = true ? {} : [];',
+      'var foo = [];'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'var foo = true ? {} : [];',
+      'obj.expr = [];'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'var foo = bar = true ? {} : [];',
+      'obj.expr      = [];'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'obj.expr = bar = true ? {} : [];',
+      'var bar        = [];'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'var foo = {},',
+      '    bar = [];',
+      'var blah = true ? [] : {};'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'var foo = {}, blah = [];',
+      'foo                = true ? [] : {}'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'var foo = true ? [] : {}, blah = [];',
+      'foo                            = blah;'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'var foo = true ? [] : {}, blah = [];',
+      'foo        = blah;'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'var foo, blah = true ? [] : {}',
+      'foo    = blah;'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'var foo = [], blah = true ? [] : {};',
+      'foo = blah;'
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'

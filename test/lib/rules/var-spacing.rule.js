@@ -301,6 +301,31 @@ ruleTester.run('var-spacing', rule, {
       'obj.expr = {}, foo;',
       'var blah = [];'
     ].join('\n')
+  }, {
+    code: [
+      'var foo  = true ? [] : false ? {} : [[]];',
+      'var blah = {};'
+    ].join('\n')
+  }, {
+    code: [
+      'var foo  = bar = baz = true ? [] : {};',
+      'var blah = true;'
+    ].join('\n')
+  }, {
+    code: [
+      'var foo  = bar = baz = true ? {} : [];',
+      'obj.expr = [];'
+    ].join('\n')
+  }, {
+    code: [
+      'var foo, bar = baz = true ? {} : [];',
+      'obj.expr     = [];'
+    ].join('\n')
+  }, {
+    code: [
+      'obj.expr     = [];',
+      'var foo, bar = baz = true ? {} : [];'
+    ].join('\n')
   }],
   invalid: [{
     code: [
@@ -536,6 +561,22 @@ ruleTester.run('var-spacing', rule, {
     code: [
       'var foo = true ? [] : false ? {} : [[]];',
       'var blah = {};'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'var foo = bar = baz = true ? [] : {};',
+      'var blah = true;'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'var foo, bar = baz = true ? {} : [];',
+      'obj.expr  = [];'
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'

@@ -414,6 +414,8 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'
+    }, {
+      message: 'Invalid indent!'
     }]
   }, {
     code: [
@@ -458,6 +460,8 @@ ruleTester.run('var-spacing', rule, {
       'obj.foo = [];'
     ].join('\n'),
     errors: [{
+      message: 'Invalid indent!'
+    }, {
       message: 'Invalid indent!'
     }]
   }, {
@@ -515,6 +519,8 @@ ruleTester.run('var-spacing', rule, {
       'var blah = true ? [] : {};'
     ].join('\n'),
     errors: [{
+      message: 'Invalid indent!'
+    }, {
       message: 'Invalid indent!'
     }]
   }, {
@@ -580,6 +586,14 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'var foo           = [];',
+      'var blah          = {};'
+    ].join('\n'),
+    errors: [{
+      message: 'The punctuator column must be directly after the longest variable!'
     }]
   }]
 });

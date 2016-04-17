@@ -532,5 +532,13 @@ ruleTester.run('var-spacing', rule, {
     errors: [{
       message: 'Invalid indent!'
     }]
+  }, {
+    code: [
+      'var foo = true ? [] : false ? {} : [[]];',
+      'var blah = {};'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }]
   }]
 });

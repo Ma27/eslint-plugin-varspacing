@@ -326,6 +326,26 @@ ruleTester.run('var-spacing', rule, {
       'obj.expr     = [];',
       'var foo, bar = baz = true ? {} : [];'
     ].join('\n')
+  }, {
+    code: [
+      'var foo  = [];',
+      'obj.blah = {};'
+    ].join('\n')
+  }, {
+    code: [
+      'obj.foo  = obj.blah = {};',
+      'var blah = [];'
+    ].join('\n')
+  }, {
+    code: [
+      'obj.foo    = obj.blah = true ? [] : {};',
+      'foo["bar"] = true;'
+    ].join('\n')
+  }, {
+    code: [
+      'var foo    = (false === foo.blah) ? [] : {};',
+      'obj.assign = function () {};'
+    ].join('\n')
   }],
   invalid: [{
     code: [
@@ -590,6 +610,54 @@ ruleTester.run('var-spacing', rule, {
   }, {
     code: [
       'var foo           = [];',
+      'var blah          = {};'
+    ].join('\n'),
+    errors: [{
+      message: 'The punctuator column must be directly after the longest variable!'
+    }]
+  }, {
+    code: [
+      'var foo           = [],',
+      '    blah          = {};'
+    ].join('\n'),
+    errors: [{
+      message: 'The punctuator column must be directly after the longest variable!'
+    }]
+  }, {
+    code: [
+      'var foo           = [];',
+      'obj.blah          = {};'
+    ].join('\n'),
+    errors: [{
+      message: 'The punctuator column must be directly after the longest variable!'
+    }]
+  }, {
+    code: [
+      'var foo          = [];',
+      'obj.blah          = {};'
+    ].join('\n'),
+    errors: [{
+      message: 'The punctuator column must be directly after the longest variable!'
+    }]
+  }, {
+    code: [
+      'var foo           = bar = [];',
+      'obj.blah          = {};'
+    ].join('\n'),
+    errors: [{
+      message: 'The punctuator column must be directly after the longest variable!'
+    }]
+  }, {
+    code: [
+      'var foo           = true ? {} : [];',
+      'var blah          = {};'
+    ].join('\n'),
+    errors: [{
+      message: 'The punctuator column must be directly after the longest variable!'
+    }]
+  }, {
+    code: [
+      'var foo          = [];',
       'var blah          = {};'
     ].join('\n'),
     errors: [{

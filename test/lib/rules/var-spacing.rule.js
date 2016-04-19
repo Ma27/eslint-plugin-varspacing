@@ -382,6 +382,17 @@ ruleTester.run('var-spacing', rule, {
       'var foo = bar = baz = true;',
       'var lol = [];'
     ].join('\n')
+  }, {
+    code: [
+      'obj.foo = [];',
+      'var foo, bar;'
+    ].join('\n')
+  }, {
+    code: [
+      'obj.foo  = [];',
+      'var foo, bar,',
+      '    blah = [];'
+    ].join('\n')
   }],
   invalid: [{
     code: [
@@ -727,6 +738,15 @@ ruleTester.run('var-spacing', rule, {
     code: [
       'obj["expr"] = [];',
       'var foobarb = {},',
+      '    blah = [];'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'obj.foo = [];',
+      'var foo, bar,',
       '    blah = [];'
     ].join('\n'),
     errors: [{

@@ -236,6 +236,21 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n')
   }, {
     code: [
+      'var foo = true ? {} : [0, 1];',
+      'debugger;'
+    ].join('\n')
+  }, {
+    code: [
+      'obj["foo"] = {};',
+      'debugger;'
+    ].join('\n')
+  }, {
+    code: [
+      'var foo = {};',
+      'debugger;'
+    ].join('\n')
+  }, {
+    code: [
       'var foo  = {},',
       '    bar  = [];',
       'var blah = true ? [] : {};'

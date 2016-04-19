@@ -3,7 +3,6 @@ environment:
 
 install:
   - npm install -g babel-cli eslint
-  - npm install react
   - npm install
 
 test_script:

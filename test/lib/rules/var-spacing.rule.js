@@ -236,6 +236,21 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n')
   }, {
     code: [
+      'var foo = true ? {} : [0, 1];',
+      'debugger;'
+    ].join('\n')
+  }, {
+    code: [
+      'obj["foo"] = {};',
+      'debugger;'
+    ].join('\n')
+  }, {
+    code: [
+      'var foo = {};',
+      'debugger;'
+    ].join('\n')
+  }, {
+    code: [
       'var foo  = {},',
       '    bar  = [];',
       'var blah = true ? [] : {};'
@@ -345,6 +360,38 @@ ruleTester.run('var-spacing', rule, {
     code: [
       'var foo    = (false === foo.blah) ? [] : {};',
       'obj.assign = function () {};'
+    ].join('\n')
+  }, {
+    code: [
+      'obj.expr           = [];',
+      'var foo, bar, blah = {};'
+    ].join('\n')
+  }, {
+    code: [
+      'obj["expr"]  = [];',
+      'var foo, bar = {};'
+    ].join('\n')
+  }, {
+    code: [
+      'obj["expr"] = [];',
+      'var foobarb = {},',
+      '    blah    = [];'
+    ].join('\n')
+  }, {
+    code: [
+      'var foo = bar = baz = true;',
+      'var lol = [];'
+    ].join('\n')
+  }, {
+    code: [
+      'obj.foo = [];',
+      'var foo, bar;'
+    ].join('\n')
+  }, {
+    code: [
+      'obj.foo  = [];',
+      'var foo, bar,',
+      '    blah = [];'
     ].join('\n')
   }],
   invalid: [{
@@ -662,6 +709,48 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     errors: [{
       message: 'The punctuator column must be directly after the longest variable!'
+    }]
+  }, {
+    code: [
+      'obj.expr = [];',
+      'var foo, bar = baz = true ? {} : [];'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'obj.expr = [];',
+      'var foo, bar, blah = {};'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'obj["expr"] = [];',
+      'var foo, bar = {};'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'obj["expr"] = [];',
+      'var foobarb = {},',
+      '    blah = [];'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'obj.foo = [];',
+      'var foo, bar,',
+      '    blah = [];'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
     }]
   }]
 });

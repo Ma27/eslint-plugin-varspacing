@@ -1,6 +1,8 @@
 var-spacing
 ===========
 
+### Introduction
+
 This rules validates the correct alignment of variable declarations:
 
 __wrong:__
@@ -17,7 +19,11 @@ let foo    = {},
     foobar = [];
 ```
 
+### Configuration
+
 It doesn't need any configuration parameters as enabling means that the code must be checked for appropriate alignment.
+
+### Rules
 
 Some rules about that:
 

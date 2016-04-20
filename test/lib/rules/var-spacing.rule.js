@@ -393,6 +393,109 @@ ruleTester.run('var-spacing', rule, {
       'var foo, bar,',
       '    blah = [];'
     ].join('\n')
+  }, {
+    code: [
+      'const { foo, bar } = obj;',
+      'const blah         = [];'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    }
+  }, {
+    code: [
+      'const {',
+      '  foo,',
+      '  bar,',
+      '  blah,',
+      '  baz',
+      '} = obj;',
+      '',
+      'const { lol, muhh } = [];'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    }
+  }, {
+    code: [
+      'const { foo, bar } = obj;',
+      'var foo, bar       = [];'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    }
+  }, {
+    code: [
+      'const { foo, bar }  = obj;',
+      'const { muh, blah } = [];'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    }
+  }, {
+    code: [
+      'const { foo, bar } = obj;',
+      'let { foo, bar }   = [];'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    }
+  }, {
+    code: [
+      'const { foo, bar, baz } = obj;',
+      'const foo               = [];'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    }
+  }, {
+    code: [
+      'const { foo, bar } = obj;',
+      'const foo          = true ? [] : {};'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    }
+  }, {
+    code: [
+      'const { foo, bar } = true ? blah : foo;',
+      'const foo          = [];'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    }
+  }, {
+    code: [
+      'const { foo, bar } = obj.expr;',
+      'const foo          = {};'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'const { foo, bar } = obj["expr"];',
+      'const foo          = {};'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'const { foo, bar } = true ? obj.expr : obj["expr"];',
+      'const foo          = {};'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    errors: [{
+      message: 'Invalid indent!'
+    }]
   }],
   invalid: [{
     code: [
@@ -751,6 +854,149 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'const { foo, bar } = obj;',
+      'const foo = [];'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'const { foo, bar } = obj;',
+      'obj["foo"] = [];'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'const { foo, bar } = obj;',
+      'obj.expr = [];'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'const { foo, bar } = obj;',
+      'var foo, bar = [];'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'const { foo, bar } = obj;',
+      'const { muh, blah } = [];'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'const { foo, bar } = obj;',
+      'let { foo, bar } = [];'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'const { foo, bar, baz } = obj;',
+      'const foo = [];'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'const { foo, bar } = obj;',
+      'const foo = true ? [] : {};'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'const { foo, bar } = true ? blah : foo;',
+      'const foo = [];'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'const { foo, bar } = obj.expr;',
+      'const foo = {};'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'const { foo, bar } = obj["expr"];',
+      'const foo = {};'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'const { foo, bar } = true ? obj.expr : obj["expr"];',
+      'const foo = {};'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'const { foo, bar }    = blah;',
+      'let { foo, blah }     = muh;'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    errors: [{
+      message: 'The punctuator column must be directly after the longest variable!'
     }]
   }]
 });

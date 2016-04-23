@@ -15,6 +15,17 @@ var ruleTester = new tester();
 ruleTester.run('var-spacing', rule, {
   valid: [{
     code: [
+      'this.foo    = [];',
+      'this.bar    = [];',
+      'this.foobar = {};'
+    ].join('\n')
+  }, {
+    code: [
+      'foo      += 1;',
+      'var blah = [];'
+    ].join('\n')
+  }, {
+    code: [
       'var foo    = {};',
       'var foobar = {};'
     ].join('\n')
@@ -93,7 +104,7 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n')
   }, {
     code: [
-      'var foo = {};',
+      'var foo    = {};',
       'var bar;',
       'var foobar = [];'
     ].join('\n')
@@ -277,7 +288,7 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n')
   }, {
     code: [
-      'var foo = [];',
+      'var foo   = [];',
       'var blah;',
       'var bar22 = {};'
     ].join('\n')
@@ -295,7 +306,7 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n')
   }, {
     code: [
-      'obj.expr = [];',
+      'obj.expr   = [];',
       'var foo;',
       'var blah22 = {};'
     ].join('\n')
@@ -470,10 +481,7 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     parserOptions: {
       ecmaVersion: 6
-    },
-    errors: [{
-      message: 'Invalid indent!'
-    }]
+    }
   }, {
     code: [
       'const { foo, bar } = obj["expr"];',
@@ -481,10 +489,7 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     parserOptions: {
       ecmaVersion: 6
-    },
-    errors: [{
-      message: 'Invalid indent!'
-    }]
+    }
   }, {
     code: [
       'const { foo, bar } = true ? obj.expr : obj["expr"];',
@@ -492,10 +497,106 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     parserOptions: {
       ecmaVersion: 6
-    },
-    errors: [{
-      message: 'Invalid indent!'
-    }]
+    }
+  }, {
+    code: [
+      '_store = {};',
+      '_ids   = [];'
+    ].join('\n')
+  }, {
+    code: [
+      '_store = {},',
+      '_ids   = [];'
+    ].join('\n')
+  }, {
+    code: [
+      '_store = {}, _ids = [];'
+    ].join('\n')
+  }, {
+    code: [
+      '_store   = [], _ids, _bar = [];',
+      'var blah = {};'
+    ].join('\n')
+  }, {
+    code: [
+      'var foo, bar = [],',
+      '    blah     = {};'
+    ].join('\n')
+  }, {
+    code: [
+      '_store = {},',
+      '_ids   += 1;'
+    ].join('\n')
+  }, {
+    code: [
+      'var foo  = [];',
+      'var bar;',
+      'var blah = {};'
+    ].join('\n')
+  }, {
+    code: [
+      '_foo   = [],',
+      'bar,',
+      'foobar = {};'
+    ].join('\n')
+  },  {
+    code: [
+      'this.foo  = {};',
+      'var foo   = [],',
+      '    blah  = {};',
+      'this.blah = {};',
+      'this.lol  = [];'
+    ].join('\n')
+  }, {
+    code: [
+      'if (true) {',
+      '  for (var i = 0; i < 10; i++) {',
+      '    this.foo = i;',
+      '    blah     = i;',
+      '  }',
+      '}'
+    ].join('\n')
+  }, {
+    code: [
+      'var foo = {};',
+      'if (Object.keys(foo) > 0) {',
+      '  var bar = [];',
+      '  for (var i = 0; i < 10; i++) {',
+      '    bar = i;',
+      '    foo = bar;',
+      '  }',
+      '}'
+    ].join('\n')
+  }, {
+    code: [
+      'for (var i = 0; i < 10; i++) { foo += i; blah = {}; }'
+    ].join('\n')
+  }, {
+    code: [
+      '_store = {}, _ids = [];'
+    ].join('\n')
+  }, {
+    code: [
+      '_store  = {}, _ids = [];',
+      'var foo = [];'
+    ].join('\n')
+  }, {
+    code: [
+      'var foo = {}; _store = [];'
+    ].join('\n')
+  }, {
+    code: [
+      'var foo = {}, bar; _store = [];'
+    ].join('\n')
+  }, {
+    code: [
+      'var foo = {}, bar = []; _store = [];'
+    ].join('\n')
+  }, {
+    code: [
+      'var foo = {},',
+      '    bar; _store = [];' // var assignment at same line with `_store` assignment
+    ].join('\n')
   }],
   invalid: [{
     code: [
@@ -504,7 +605,11 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'var foo    = {};',
+      'var foobar = {};'
+    ].join('\n')
   }, {
     code: [
       'var foo = {},',
@@ -512,7 +617,11 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'var foo    = {},',
+      '    bazbaz = []'
+    ].join('\n')
   }, {
     code: [
       'var foo = {};',
@@ -520,7 +629,11 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'var foo = {};',
+      'foo     = [];'
+    ].join('\n')
   }, {
     code: [
       'var foo    = {},',
@@ -529,7 +642,12 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'var foo    = {},',
+      '    foobar = [];',
+      'var baz    = {};'
+    ].join('\n')
   }, {
     code: [
       'const foo = {};',
@@ -540,7 +658,11 @@ ruleTester.run('var-spacing', rule, {
     }],
     parserOptions: {
       ecmaVersion: 6
-    }
+    },
+    output: [
+      'const foo = {};',
+      'let bar   = [];'
+    ].join('\n')
   }, {
     code: [
       'var foo = function () {',
@@ -550,7 +672,13 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'var foo    = function () {',
+      '    console.log(arguments);',
+      '};',
+      'var foobar = {};'
+    ].join('\n')
   }, {
     code: [
       'var foo = bar = {};',
@@ -558,7 +686,13 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }, {
+      message: 'Invalid indent!'
+    }],
+    output: [
+      'var foo  = bar = {};',
+      'var blah = {};'
+    ].join('\n')
   }, {
     code: [
       'var foo = bar = {},',
@@ -566,7 +700,13 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }, {
+      message: 'Invalid indent!'
+    }],
+    output: [
+      'var foo  = bar = {},',
+      '    blah = [];'
+    ].join('\n')
   }, {
     code: [
       'var foo =', // helpful in case of multiline expressions as some assignments would reach the 120 char limit
@@ -575,7 +715,12 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'var foo    =',
+      '    {};',
+      'var foobar = {};'
+    ].join('\n')
   }, {
     code: [
       'var foo = {},',
@@ -586,7 +731,12 @@ ruleTester.run('var-spacing', rule, {
       message: 'Invalid indent!'
     }, {
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'var foo  = {},',
+      '    bar1 = [];',
+      'var lol  = [];'
+    ].join('\n')
   }, {
     code: [
       'function foo() {',
@@ -596,7 +746,13 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'function foo() {',
+      '  this.blah = {};',
+      '  this.foo  = [];',
+      '}'
+    ].join('\n')
   }, {
     code: [
       'var obj = {};',
@@ -606,7 +762,13 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'var obj = {};',
+      '',
+      'obj["foo"]  = {};',
+      'obj["blah"] = [];'
+    ].join('\n')
   }, {
     code: [
       'obj["foo"] = {};',
@@ -614,7 +776,11 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'obj["foo"] = {};',
+      'var foo    = [];'
+    ].join('\n')
   }, {
     code: [
       'var obj = {};',
@@ -622,7 +788,11 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'var obj    = {};',
+      'obj["lol"] = [];'
+    ].join('\n')
   }, {
     code: [
       'var obj = {},',
@@ -633,7 +803,12 @@ ruleTester.run('var-spacing', rule, {
       message: 'Invalid indent!'
     }, {
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'var obj    = {},',
+      '    number = 5;',
+      'obj.foo    = [];'
+    ].join('\n')
   }, {
     code: [
       'var obj1 = {}, number = 5;',
@@ -641,7 +816,11 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'var obj1    = {}, number = 5;',
+      'obj1.foobar = [];'
+    ].join('\n')
   }, {
     code: [
       'var foo = true ? {} : [];',
@@ -649,7 +828,11 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'var foo  = true ? {} : [];',
+      'var blah = [];'
+    ].join('\n')
   }, {
     code: [
       'obj.expr = true ? {} : [];',
@@ -657,7 +840,11 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'obj.expr = true ? {} : [];',
+      'var foo  = [];'
+    ].join('\n')
   }, {
     code: [
       'var foo = true ? {} : [];',
@@ -665,7 +852,11 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'var foo  = true ? {} : [];',
+      'obj.expr = [];'
+    ].join('\n')
   }, {
     code: [
       'var foo = bar = true ? {} : [];',
@@ -673,7 +864,13 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }, {
+      message: 'Invalid indent!'
+    }],
+    output: [
+      'var foo  = bar = true ? {} : [];',
+      'obj.expr = [];'
+    ].join('\n')
   }, {
     code: [
       'obj.expr = bar = true ? {} : [];',
@@ -681,7 +878,11 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'obj.expr = bar = true ? {} : [];',
+      'var bar  = [];'
+    ].join('\n')
   }, {
     code: [
       'var foo = {},',
@@ -692,7 +893,12 @@ ruleTester.run('var-spacing', rule, {
       message: 'Invalid indent!'
     }, {
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'var foo  = {},',
+      '    bar  = [];',
+      'var blah = true ? [] : {};'
+    ].join('\n')
   }, {
     code: [
       'var foo = {}, blah = [];',
@@ -700,7 +906,11 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'var foo = {}, blah = [];',
+      'foo     = true ? [] : {}'
+    ].join('\n')
   }, {
     code: [
       'var foo = true ? [] : {}, blah = [];',
@@ -708,7 +918,11 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'var foo = true ? [] : {}, blah = [];',
+      'foo     = blah;'
+    ].join('\n')
   }, {
     code: [
       'var foo = true ? [] : {}, blah = [];',
@@ -716,7 +930,11 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'var foo = true ? [] : {}, blah = [];',
+      'foo     = blah;'
+    ].join('\n')
   }, {
     code: [
       'var foo, blah = true ? [] : {}',
@@ -724,7 +942,11 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'var foo, blah = true ? [] : {}',
+      'foo           = blah;'
+    ].join('\n')
   }, {
     code: [
       'var foo = [], blah = true ? [] : {};',
@@ -732,7 +954,11 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'var foo = [], blah = true ? [] : {};',
+      'foo     = blah;'
+    ].join('\n')
   }, {
     code: [
       'var foo = true ? [] : false ? {} : [[]];',
@@ -740,7 +966,11 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'var foo  = true ? [] : false ? {} : [[]];',
+      'var blah = {};'
+    ].join('\n')
   }, {
     code: [
       'var foo = bar = baz = true ? [] : {};',
@@ -748,7 +978,11 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'var foo  = bar = baz = true ? [] : {};',
+      'var blah = true;'
+    ].join('\n')
   }, {
     code: [
       'var foo, bar = baz = true ? {} : [];',
@@ -756,63 +990,109 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'var foo, bar = baz = true ? {} : [];',
+      'obj.expr     = [];'
+    ].join('\n')
   }, {
     code: [
       'var foo           = [];',
       'var blah          = {};'
     ].join('\n'),
     errors: [{
-      message: 'The punctuator column must be directly after the longest variable!'
-    }]
+      message: 'The punctuator column must be placed directly after the longest variable!'
+    }, {
+      message: 'The punctuator column must be placed directly after the longest variable!'
+    }],
+    output: [
+      'var foo  = [];',
+      'var blah = {};'
+    ].join('\n')
   }, {
     code: [
       'var foo           = [],',
       '    blah          = {};'
     ].join('\n'),
     errors: [{
-      message: 'The punctuator column must be directly after the longest variable!'
-    }]
+      message: 'The punctuator column must be placed directly after the longest variable!'
+    }, {
+      message: 'The punctuator column must be placed directly after the longest variable!'
+    }],
+    output: [
+      'var foo  = [],',
+      '    blah = {};'
+    ].join('\n')
   }, {
     code: [
       'var foo           = [];',
       'obj.blah          = {};'
     ].join('\n'),
     errors: [{
-      message: 'The punctuator column must be directly after the longest variable!'
-    }]
+      message: 'The punctuator column must be placed directly after the longest variable!'
+    }, {
+      message: 'The punctuator column must be placed directly after the longest variable!'
+    }],
+    output: [
+      'var foo  = [];',
+      'obj.blah = {};'
+    ].join('\n')
   }, {
     code: [
       'var foo          = [];',
       'obj.blah          = {};'
     ].join('\n'),
     errors: [{
-      message: 'The punctuator column must be directly after the longest variable!'
-    }]
+      message: 'The punctuator column must be placed directly after the longest variable!'
+    }, {
+      message: 'The punctuator column must be placed directly after the longest variable!'
+    }],
+    output: [
+      'var foo  = [];',
+      'obj.blah = {};'
+    ].join('\n')
   }, {
     code: [
       'var foo           = bar = [];',
       'obj.blah          = {};'
     ].join('\n'),
     errors: [{
-      message: 'The punctuator column must be directly after the longest variable!'
-    }]
+      message: 'The punctuator column must be placed directly after the longest variable!'
+    }, {
+      message: 'The punctuator column must be placed directly after the longest variable!'
+    }],
+    output: [
+      'var foo  = bar = [];',
+      'obj.blah = {};'
+    ].join('\n')
   }, {
     code: [
       'var foo           = true ? {} : [];',
       'var blah          = {};'
     ].join('\n'),
     errors: [{
-      message: 'The punctuator column must be directly after the longest variable!'
-    }]
+      message: 'The punctuator column must be placed directly after the longest variable!'
+    }, {
+      message: 'The punctuator column must be placed directly after the longest variable!'
+    }],
+    output: [
+      'var foo  = true ? {} : [];',
+      'var blah = {};'
+    ].join('\n')
   }, {
     code: [
       'var foo          = [];',
       'var blah          = {};'
     ].join('\n'),
     errors: [{
-      message: 'The punctuator column must be directly after the longest variable!'
-    }]
+      message: 'The punctuator column must be placed directly after the longest variable!'
+    }, {
+      message: 'The punctuator column must be placed directly after the longest variable!'
+    }],
+    output: [
+      'var foo  = [];',
+      'var blah = {};'
+    ].join('\n')
   }, {
     code: [
       'obj.expr = [];',
@@ -820,7 +1100,11 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'obj.expr     = [];',
+      'var foo, bar = baz = true ? {} : [];'
+    ].join('\n')
   }, {
     code: [
       'obj.expr = [];',
@@ -828,7 +1112,11 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'obj.expr           = [];',
+      'var foo, bar, blah = {};'
+    ].join('\n')
   }, {
     code: [
       'obj["expr"] = [];',
@@ -836,7 +1124,11 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'obj["expr"]  = [];',
+      'var foo, bar = {};'
+    ].join('\n')
   }, {
     code: [
       'obj["expr"] = [];',
@@ -845,7 +1137,12 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'obj["expr"] = [];',
+      'var foobarb = {},',
+      '    blah    = [];'
+    ].join('\n')
   }, {
     code: [
       'obj.foo = [];',
@@ -854,7 +1151,12 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'obj.foo  = [];',
+      'var foo, bar,',
+      '    blah = [];'
+    ].join('\n')
   }, {
     code: [
       'const { foo, bar } = obj;',
@@ -865,7 +1167,11 @@ ruleTester.run('var-spacing', rule, {
     },
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'const { foo, bar } = obj;',
+      'const foo          = [];'
+    ].join('\n')
   }, {
     code: [
       'const { foo, bar } = obj;',
@@ -876,7 +1182,11 @@ ruleTester.run('var-spacing', rule, {
     },
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'const { foo, bar } = obj;',
+      'obj["foo"]         = [];'
+    ].join('\n')
   }, {
     code: [
       'const { foo, bar } = obj;',
@@ -887,7 +1197,11 @@ ruleTester.run('var-spacing', rule, {
     },
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'const { foo, bar } = obj;',
+      'obj.expr           = [];'
+    ].join('\n')
   }, {
     code: [
       'const { foo, bar } = obj;',
@@ -898,7 +1212,11 @@ ruleTester.run('var-spacing', rule, {
     },
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'const { foo, bar } = obj;',
+      'var foo, bar       = [];'
+    ].join('\n')
   }, {
     code: [
       'const { foo, bar } = obj;',
@@ -909,7 +1227,11 @@ ruleTester.run('var-spacing', rule, {
     },
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'const { foo, bar }  = obj;',
+      'const { muh, blah } = [];'
+    ].join('\n')
   }, {
     code: [
       'const { foo, bar } = obj;',
@@ -920,7 +1242,11 @@ ruleTester.run('var-spacing', rule, {
     },
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'const { foo, bar } = obj;',
+      'let { foo, bar }   = [];'
+    ].join('\n')
   }, {
     code: [
       'const { foo, bar, baz } = obj;',
@@ -931,7 +1257,11 @@ ruleTester.run('var-spacing', rule, {
     },
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'const { foo, bar, baz } = obj;',
+      'const foo               = [];'
+    ].join('\n')
   }, {
     code: [
       'const { foo, bar } = obj;',
@@ -942,7 +1272,11 @@ ruleTester.run('var-spacing', rule, {
     },
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'const { foo, bar } = obj;',
+      'const foo          = true ? [] : {};'
+    ].join('\n')
   }, {
     code: [
       'const { foo, bar } = true ? blah : foo;',
@@ -953,7 +1287,11 @@ ruleTester.run('var-spacing', rule, {
     },
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'const { foo, bar } = true ? blah : foo;',
+      'const foo          = [];'
+    ].join('\n')
   }, {
     code: [
       'const { foo, bar } = obj.expr;',
@@ -964,7 +1302,11 @@ ruleTester.run('var-spacing', rule, {
     },
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'const { foo, bar } = obj.expr;',
+      'const foo          = {};'
+    ].join('\n')
   }, {
     code: [
       'const { foo, bar } = obj["expr"];',
@@ -975,7 +1317,11 @@ ruleTester.run('var-spacing', rule, {
     },
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'const { foo, bar } = obj["expr"];',
+      'const foo          = {};'
+    ].join('\n')
   }, {
     code: [
       'const { foo, bar } = true ? obj.expr : obj["expr"];',
@@ -986,7 +1332,11 @@ ruleTester.run('var-spacing', rule, {
     },
     errors: [{
       message: 'Invalid indent!'
-    }]
+    }],
+    output: [
+      'const { foo, bar } = true ? obj.expr : obj["expr"];',
+      'const foo          = {};'
+    ].join('\n')
   }, {
     code: [
       'const { foo, bar }    = blah;',
@@ -996,7 +1346,209 @@ ruleTester.run('var-spacing', rule, {
       ecmaVersion: 6
     },
     errors: [{
-      message: 'The punctuator column must be directly after the longest variable!'
-    }]
+      message: 'The punctuator column must be placed directly after the longest variable!'
+    }, {
+      message: 'The punctuator column must be placed directly after the longest variable!'
+    }],
+    output: [
+      'const { foo, bar } = blah;',
+      'let { foo, blah }  = muh;'
+    ].join('\n')
+  }, {
+    code: [
+    'this.foo = [];',
+    'this.bar = [];',
+    'this.foobar = {};'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }, {
+      message: 'Invalid indent!'
+    }],
+    output: [
+      'this.foo    = [];',
+      'this.bar    = [];',
+      'this.foobar = {};'
+    ].join('\n')
+  }, {
+    code: [
+      'foo     += 1;',
+      'var blah = [];'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }],
+    output: [
+      'foo      += 1;',
+      'var blah = [];'
+    ].join('\n')
+  }, {
+    code: [
+      'foo += 1;',
+      'var blah = [];'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }],
+    output: [
+      'foo      += 1;',
+      'var blah = [];'
+    ].join('\n')
+  }, {
+    code: [
+      '_store = {};',
+      '_ids = [];'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }],
+    output: [
+      '_store = {};',
+      '_ids   = [];'
+    ].join('\n')
+  }, {
+    code: [
+      '_store = {},',
+      '_ids = [];'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }],
+    output: [
+      '_store = {},',
+      '_ids   = [];'
+    ].join('\n')
+  }, {
+    code: [
+      '_store = [], _ids, _bar = [];',
+      'var blah = {};'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }],
+    output: [
+      '_store   = [], _ids, _bar = [];',
+      'var blah = {};'
+    ].join('\n')
+  }, {
+    code: [
+      'var foo, bar = [],',
+      '    blah = {};'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }],
+    output: [
+      'var foo, bar = [],',
+      '    blah     = {};'
+    ].join('\n')
+  }, {
+    code: [
+      '_store = {},',
+      '_ids += 1;'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }],
+    output: [
+      '_store = {},',
+      '_ids   += 1;'
+    ].join('\n')
+  }, {
+    code: [
+      'var foo = [];',
+      'var bar;',
+      'var blah = {};'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }],
+    output: [
+      'var foo  = [];',
+      'var bar;',
+      'var blah = {};'
+    ].join('\n')
+  }, {
+    code: [
+      '_foo = [],',
+      'bar,',
+      'foobar = {};'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }],
+    output: [
+      '_foo   = [],',
+      'bar,',
+      'foobar = {};'
+    ].join('\n')
+  }, {
+    code: [
+      'this.foo = {};',
+      'var foo = [],',
+      '    blah = {};',
+      'this.blah = {};',
+      'this.lol = [];'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }, {
+      message: 'Invalid indent!'
+    }, {
+      message: 'Invalid indent!'
+    }, {
+      message: 'Invalid indent!'
+    }],
+    output: [
+      'this.foo  = {};',
+      'var foo   = [],',
+      '    blah  = {};',
+      'this.blah = {};',
+      'this.lol  = [];'
+    ].join('\n')
+  }, {
+    code: [
+      'if (true) {',
+      '  for (var i = 0; i < 10; i++) {',
+      '    this.foo = i;',
+      '    blah = i;',
+      '  }',
+      '}'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }],
+    output: [
+      'if (true) {',
+      '  for (var i = 0; i < 10; i++) {',
+      '    this.foo = i;',
+      '    blah     = i;',
+      '  }',
+      '}'
+    ].join('\n')
+  },  {
+    code: [
+      'var foo = {};',
+      'if (Object.keys(foo) > 0) {',
+      '  var bar = [];',
+      '  for (var i = 0; i < 10; i++) {',
+      '    bar = i;',
+      '    foobar = bar;',
+      '  }',
+      '}'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }],
+    output: [
+      'var foo = {};',
+      'if (Object.keys(foo) > 0) {',
+      '  var bar = [];',
+      '  for (var i = 0; i < 10; i++) {',
+      '    bar    = i;',
+      '    foobar = bar;',
+      '  }',
+      '}'
+    ].join('\n')
   }]
 });

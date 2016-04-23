@@ -1,6 +1,9 @@
 var-spacing
 ===========
 
+**Fixable:** This rule is automatically fixable using the `--fix` flag on the command line.
+
+
 ### Introduction
 
 This rules validates the correct alignment of variable declarations:

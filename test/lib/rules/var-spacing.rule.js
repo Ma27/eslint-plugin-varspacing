@@ -597,6 +597,70 @@ ruleTester.run('var-spacing', rule, {
       'var foo = {},',
       '    bar; _store = [];' // var assignment at same line with `_store` assignment
     ].join('\n')
+  }, {
+    // https://github.com/Sententiaregum/eslint-plugin-varspacing/issues/26
+    code: [
+      'var test = "banana";',
+      'switch (test) {',
+      '    case "Hello":',
+      '        test2 = 15;',
+      '}'
+    ].join('\n')
+  }, {
+    code: [
+      'var test = "banana";',
+      'switch (test) {',
+      '    case "Hello":',
+      '        test2   = 15;',
+      '        test345 = 25;',
+      '}'
+    ].join('\n')
+  }, {
+    code: [
+      'var test = "banana";',
+      'switch (test) {',
+      '    case "Hello":',
+      '        test6 = 10;',
+      '        if (expr) {',
+      '            test2   = 15;',
+      '            test345 = 25;',
+      '        }',
+      '}'
+    ].join('\n')
+  }, {
+    code: [
+      'var test = "banana";',
+      'switch (test) {',
+      '    case "Hello":',
+      '        test6  = 10;',
+      '        test78 = 23;',
+      '        if (expr) {',
+      '            test2   = 15;',
+      '            test345 = 25;',
+      '        }',
+      '}'
+    ].join('\n')
+  }, {
+    code: [
+      'var test = "banana";',
+      'switch (test) {',
+      '    case "Hello":',
+      '        test6 = 10;',
+      '    case "Goodbye":',
+      '        test79 = 12;',
+      '        test8  = 13;',
+      '}'
+    ].join('\n')
+  }, {
+    code: [
+      'var test = "banana";',
+      'switch (test) {',
+      '    case "Hello":',
+      '        test6 = 10;',
+      '    case "Goodbye":',
+      '        test79 = 12;',
+      '}'
+    ].join('\n')
   }],
   invalid: [{
     code: [
@@ -1550,5 +1614,78 @@ ruleTester.run('var-spacing', rule, {
       '  }',
       '}'
     ].join('\n')
+  },
+  // https://github.com/Sententiaregum/eslint-plugin-varspacing/issues/26
+  {
+    code: [
+      'var foo = "apple";',
+      'var test = "banana";',
+      'switch (test) {',
+      '    case "Hello":',
+      '        test2 = 15;',
+      '}'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'var test = "banana";',
+      'switch (test) {',
+      '    case "Hello":',
+      '        test2 = 15;',
+      '        test345 = 25;',
+      '}'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'var test = "banana";',
+      'switch (test) {',
+      '    case "Hello":',
+      '        test6 = 10;',
+      '        if (expr) {',
+      '            test2 = 15;',
+      '            test345 = 25;',
+      '        }',
+      '}'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'var test = "banana";',
+      'switch (test) {',
+      '    case "Hello":',
+      '        test6 = 10;',
+      '        test78 = 23;',
+      '        if (expr) {',
+      '            test2 = 15;',
+      '            test345 = 25;',
+      '        }',
+      '}'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }, {
+      message: 'Invalid indent!'
+    }]
+  }, {
+    code: [
+      'var test = "banana";',
+      'switch (test) {',
+      '    case "Hello":',
+      '        test6 = 10;',
+      '    case "Goodbye":',
+      '        test79 = 12;',
+      '        test8 = 13;',
+      '}'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }]
   }]
 });

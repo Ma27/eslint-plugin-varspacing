@@ -661,6 +661,23 @@ ruleTester.run('var-spacing', rule, {
       '        test79 = 12;',
       '}'
     ].join('\n')
+  }, {
+    code: [
+      'var a = "b";',
+      'function foo() {',
+      '  var b    = "c";',
+      '  return a = b;',
+      '}'
+    ].join('\n')
+  }, {
+    code: [
+      'var a = "b";',
+      'function foo() {',
+      '  var b    = "c",',
+      '      d    = "f";',
+      '  return a = b;',
+      '}'
+    ].join('\n')
   }],
   invalid: [{
     code: [
@@ -1687,5 +1704,45 @@ ruleTester.run('var-spacing', rule, {
     errors: [{
       message: 'Invalid indent!'
     }]
+  }, {
+    code: [
+      'var c;',
+      'function foo() {',
+      '  var a = "b";',
+      '  return c = a;',
+      '}'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }],
+    output: [
+      'var c;',
+      'function foo() {',
+      '  var a    = "b";',
+      '  return c = a;',
+      '}'
+    ].join('\n')
+  }, {
+    code: [
+      'var a = "b";',
+      'function foo() {',
+      '  var b  = "c",',
+      '      d = "f";',
+      '  return a = b;',
+      '}'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }, {
+      message: 'Invalid indent!'
+    }],
+    output: [
+      'var a = "b";',
+      'function foo() {',
+      '  var b    = "c",',
+      '      d    = "f";',
+      '  return a = b;',
+      '}'
+    ].join('\n')
   }]
 });

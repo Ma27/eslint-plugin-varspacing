@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-varspacing",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A eslint rule for proper var spacing",
   "main": "index.js",
   "scripts": {

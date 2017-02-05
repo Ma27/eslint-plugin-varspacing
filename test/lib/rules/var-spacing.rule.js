@@ -678,6 +678,781 @@ ruleTester.run('var-spacing', rule, {
       '  return a = b;',
       '}'
     ].join('\n')
+  }, {
+    code: [
+      'var a = 1;',
+      'var abc = 2;'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'this.foo = [];',
+      'this.bar = [];',
+      'this.foobar = {};'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'foo += 1;',
+      'var blah = [];'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var foo = {};',
+      'var foobar = {};'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var foo = {},',
+      '    bar = {};'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var foo = {},',
+      '    bar = [1,2,3],',
+      '    baz = {};'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'let foo = [1,2,3];',
+      'const bar = {};'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    options: [false]
+  }, {
+    code: [
+      'const foo = [1,2,3];',
+      'let bar = {};'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    options: [false]
+  }, {
+    code: [
+      'var foo = {};',
+      '',
+      'var foobar = {};'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var foo = {};',
+      'for (var i = 0; i < 10; i++) {',
+      '}'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var foo = {};',
+      'foo = [];'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var foo = {},',
+      '    foobar = [];',
+      'var baz = {};'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var foo;',
+      'let blah = {};'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    options: [false]
+  }, {
+    code: [
+      'var foo = {};',
+      'let blah;'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    options: [false]
+  }, {
+    code: [
+      'var foo = function () {',
+      '    console.log(arguments);',
+      '};',
+      'var foobar = {};'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var foo = {};',
+      'var bar;',
+      'var foobar = [];'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'let foo, bar;',
+      'const foobar = {};'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    options: [false]
+  }, {
+    code: [
+      'let foo, bar = {};',
+      'let items = [];'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    options: [false]
+  }, {
+    code: [
+      'const foo = {}, bar = {};',
+      'let items = [];'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    options: [false]
+  }, {
+    code: [
+      'let foobar = {}, bar;',
+      'let items = [];'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    options: [false]
+  }, {
+    code: [
+      'const foo = {}, bar = {};',
+      'let items = [];'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    options: [false]
+  }, {
+    code: [
+      'const foo = bar = {};',
+      'let blah = [];'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    options: [false]
+  }, {
+    code: [
+      'var foo = bar = {},',
+      '    blah = {};'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var foo =', // helpful in case of multiline expressions as some assignments would reach the 120 char limit
+      '    {};',
+      'var foobar = {};'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var foo = {},',
+      '    bar1 = [];',
+      'var lol = [];'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'function foo () {',
+      '  this.blah = {};',
+      '  this.foo = [];',
+      '}'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var obj = {};',
+      '',
+      'obj["foo"] = {};',
+      'obj["blah"] = [];'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var obj = {};',
+      'obj["lol"] = [];'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'obj["lol"] = { foo: null };',
+      'var obj = [];'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var obj = {},',
+      '    number = 5;',
+      'obj.foo = [];'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var obj1 = {}, number = 5;',
+      'obj1.foobar = [];'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var foo = true ? {} : [];',
+      'var blah = [];'
+    ].join('\n'),
+    options: [false]
+  },{
+    code: [
+      'obj.expr = true ? {} : [];',
+      'var foo = [];'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var foo = true ? {} : [];',
+      'obj.expr = [];'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var foo = bar = true ? {} : [];',
+      'obj.expr = [];'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'obj.expr = bar = true ? {} : [];',
+      'var bar = [];'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'obj.expr = {};',
+      'for (var i = 0; i < 10; i++) {',
+      '}'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var foo = true ? {} : [];',
+      'for (var i = 0; i < 10; i++) {',
+      '}'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var foo = true ? {} : [0, 1];',
+      'debugger;'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'obj["foo"] = {};',
+      'debugger;'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var foo = {};',
+      'debugger;'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var foo = {},',
+      '    bar = [];',
+      'var blah = true ? [] : {};'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var foo = {}, blah = [];',
+      'foo = true ? [] : {}'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var foo = true ? [] : {}, blah = [];',
+      'foo = blah;'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var foo, blah = true ? [] : {}',
+      'foo = blah;'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var foo = [], blah = true ? [] : {};',
+      'foo = blah;'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var foo = [];',
+      'var blah;',
+      'var bar22 = {};'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var foo = [],',
+      '    bar;',
+      'var bar22 = {};'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var foo = [];',
+      'var blah,',
+      '    foobar = {};'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'obj.expr = [];',
+      'var foo;',
+      'var blah22 = {};'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'obj.expr = [],',
+      '    foo;',
+      'var blah22 = {};'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'obj.expr = [];',
+      'var foo,',
+      '    blah22 = {};'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'obj.expr = {}, foo;',
+      'var blah = [];'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var foo = true ? [] : false ? {} : [[]];',
+      'var blah = {};'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var foo = bar = baz = true ? [] : {};',
+      'var blah = true;'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var foo = bar = baz = true ? {} : [];',
+      'obj.expr = [];'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var foo, bar = baz = true ? {} : [];',
+      'obj.expr = [];'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'obj.expr = [];',
+      'var foo, bar = baz = true ? {} : [];'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var foo = [];',
+      'obj.blah = {};'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'obj.foo = obj.blah = {};',
+      'var blah = [];'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'obj.foo = obj.blah = true ? [] : {};',
+      'foo["bar"] = true;'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var foo = (false === foo.blah) ? [] : {};',
+      'obj.assign = function () {};'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'obj.expr = [];',
+      'var foo, bar, blah = {};'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'obj["expr"] = [];',
+      'var foo, bar = {};'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'obj["expr"] = [];',
+      'var foobarb = {},',
+      '    blah = [];'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var foo = bar = baz = true;',
+      'var lol = [];'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'obj.foo = [];',
+      'var foo, bar;'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'obj.foo = [];',
+      'var foo, bar,',
+      '    blah = [];'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'const { foo, bar } = obj;',
+      'const blah = [];'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    options: [false]
+  }, {
+    code: [
+      'const {',
+      '  foo,',
+      '  bar,',
+      '  blah,',
+      '  baz',
+      '} = obj;',
+      '',
+      'const { lol, muhh } = [];'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    options: [false]
+  }, {
+    code: [
+      'const { foo, bar } = obj;',
+      'var foo, bar = [];'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    options: [false]
+  }, {
+    code: [
+      'const { foo, bar } = obj;',
+      'const { muh, blah } = [];'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    options: [false]
+  }, {
+    code: [
+      'const { foo, bar } = obj;',
+      'let { foo, bar } = [];'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    options: [false]
+  }, {
+    code: [
+      'const { foo, bar, baz } = obj;',
+      'const foo = [];'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    options: [false]
+  }, {
+    code: [
+      'const { foo, bar } = obj;',
+      'const foo = true ? [] : {};'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    options: [false]
+  }, {
+    code: [
+      'const { foo, bar } = true ? blah : foo;',
+      'const foo = [];'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    options: [false]
+  }, {
+    code: [
+      'const { foo, bar } = obj.expr;',
+      'const foo = {};'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    options: [false]
+  }, {
+    code: [
+      'const { foo, bar } = obj["expr"];',
+      'const foo = {};'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    options: [false]
+  }, {
+    code: [
+      'const { foo, bar } = true ? obj.expr : obj["expr"];',
+      'const foo = {};'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    options: [false]
+  }, {
+    code: [
+      '_store = {};',
+      '_ids = [];'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      '_store = {},',
+      '_ids = [];'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      '_store = {}, _ids = [];'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      '_store = [], _ids, _bar = [];',
+      'var blah = {};'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var foo, bar = [],',
+      '    blah = {};'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      '_store = {},',
+      '_ids += 1;'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var foo = [];',
+      'var bar;',
+      'var blah = {};'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      '_foo = [],',
+      'bar,',
+      'foobar = {};'
+    ].join('\n'),
+    options: [false]
+  },  {
+    code: [
+      'this.foo = {};',
+      'var foo = [],',
+      '    blah = {};',
+      'this.blah = {};',
+      'this.lol = [];'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'if (true) {',
+      '  for (var i = 0; i < 10; i++) {',
+      '    this.foo = i;',
+      '    blah = i;',
+      '  }',
+      '}'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var foo = {};',
+      'if (Object.keys(foo) > 0) {',
+      '  var bar = [];',
+      '  for (var i = 0; i < 10; i++) {',
+      '    bar = i;',
+      '    foo = bar;',
+      '  }',
+      '}'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'for (var i = 0; i < 10; i++) { foo += i; blah = {}; }'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      '_store = {}, _ids = [];'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      '_store = {}, _ids = [];',
+      'var foo = [];'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var foo = {}; _store = [];'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var foo = {}, bar; _store = [];'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var foo = {}, bar = []; _store = [];'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var foo = {},',
+      '    bar; _store = [];' // var assignment at same line with `_store` assignment
+    ].join('\n'),
+    options: [false]
+  }, {
+    // https://github.com/Sententiaregum/eslint-plugin-varspacing/issues/26
+    code: [
+      'var test = "banana";',
+      'switch (test) {',
+      '    case "Hello":',
+      '        test2 = 15;',
+      '}'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var test = "banana";',
+      'switch (test) {',
+      '    case "Hello":',
+      '        test2 = 15;',
+      '        test345 = 25;',
+      '}'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var test = "banana";',
+      'switch (test) {',
+      '    case "Hello":',
+      '        test6 = 10;',
+      '        if (expr) {',
+      '            test2 = 15;',
+      '            test345 = 25;',
+      '        }',
+      '}'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var test = "banana";',
+      'switch (test) {',
+      '    case "Hello":',
+      '        test6 = 10;',
+      '        test78 = 23;',
+      '        if (expr) {',
+      '            test2 = 15;',
+      '            test345 = 25;',
+      '        }',
+      '}'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var test = "banana";',
+      'switch (test) {',
+      '    case "Hello":',
+      '        test6 = 10;',
+      '    case "Goodbye":',
+      '        test79 = 12;',
+      '        test8 = 13;',
+      '}'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var test = "banana";',
+      'switch (test) {',
+      '    case "Hello":',
+      '        test6 = 10;',
+      '    case "Goodbye":',
+      '        test79 = 12;',
+      '}'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var a = "b";',
+      'function foo() {',
+      '  var b = "c";',
+      '  return a = b;',
+      '}'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'var a = "b";',
+      'function foo() {',
+      '  var b = "c",',
+      '      d = "f";',
+      '  return a = b;',
+      '}'
+    ].join('\n'),
+    options: [false]
   }],
   invalid: [{
     code: [
@@ -1744,5 +2519,229 @@ ruleTester.run('var-spacing', rule, {
       '  return a = b;',
       '}'
     ].join('\n')
+  },
+    // inverse linting  
+  {
+    code: [
+      'var a   = 1;',
+      'var abc = 2;',
+    ].join('\n'),
+    options: [false],
+    errors: [{
+      message: 'Invalid indent!'
+    }],
+    output: [
+      'var a = 1;',
+      'var abc = 2;'
+    ].join('\n')
+  }, {
+    code: [
+      'var a        = 5;'
+    ].join('\n'),
+    options: [false],
+    errors: [{
+      message: 'Invalid indent!'
+    }],
+    output: [
+      'var a = 5;'
+    ].join('\n'),
+  }, {
+    code: [
+      'obj.foo      = [];',
+      'var foo, bar,',
+      '    blah = [];'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }],
+    output: [
+      'obj.foo = [];',
+      'var foo, bar,',
+      '    blah = [];'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'const { foo, bar } = obj;',
+      'const foo         = [];'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    errors: [{
+      message: 'Invalid indent!'
+    }],
+    output: [
+      'const { foo, bar } = obj;',
+      'const foo = [];'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'const { foo, bar } = obj;',
+      'obj["foo"]         = [];'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    errors: [{
+      message: 'Invalid indent!'
+    }],
+    output: [
+      'const { foo, bar } = obj;',
+      'obj["foo"] = [];'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'const { foo, bar } = obj;',
+      'obj.expr                               = [];'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    errors: [{
+      message: 'Invalid indent!'
+    }],
+    output: [
+      'const { foo, bar } = obj;',
+      'obj.expr = [];'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'const { foo, bar } = obj;',
+      'var foo, bar       = [];'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    errors: [{
+      message: 'Invalid indent!'
+    }],
+    output: [
+      'const { foo, bar } = obj;',
+      'var foo, bar = [];'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'const { foo, bar }  = obj;',
+      'const { muh, blah } = [];'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    errors: [{
+      message: 'Invalid indent!'
+    }],
+    output: [
+      'const { foo, bar } = obj;',
+      'const { muh, blah } = [];'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'const { foo, bar } = obj;',
+      'let { foo, bar }  = [];'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    errors: [{
+      message: 'Invalid indent!'
+    }],
+    output: [
+      'const { foo, bar } = obj;',
+      'let { foo, bar } = [];'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'const { foo, bar, baz } = obj;',
+      'const foo               = [];'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    errors: [{
+      message: 'Invalid indent!'
+    }],
+    output: [
+      'const { foo, bar, baz } = obj;',
+      'const foo = [];'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'const { foo, bar } = obj;',
+      'const foo          = true ? [] : {};'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    errors: [{
+      message: 'Invalid indent!'
+    }],
+    output: [
+      'const { foo, bar } = obj;',
+      'const foo = true ? [] : {};'
+    ].join('\n'),
+    options: [false]
+  }, {
+    code: [
+      'const { foo, bar } = true ? blah : foo;',
+      'const foo          = [];'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    options: [false],
+    errors: [{
+      message: 'Invalid indent!'
+    }],
+    output: [
+      'const { foo, bar } = true ? blah : foo;',
+      'const foo = [];'
+    ].join('\n')
+  }, {
+    code: [
+      'const { foo, bar } = obj.expr;',
+      'const foo          = {};'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
+    errors: [{
+      message: 'Invalid indent!'
+    }],
+    options: [false],
+    output: [
+      'const { foo, bar } = obj.expr;',
+      'const foo = {};'
+    ].join('\n')
+  }, {
+    code: [
+      'var a = "b";',
+      'function foo() {',
+      '  var b    = "c",',
+      '      d    = "f";',
+      '  return a = b;',
+      '}'
+    ].join('\n'),
+    errors: [{
+      message: 'Invalid indent!'
+    }, {
+      message: 'Invalid indent!'
+    }],
+    output: [
+      'var a = "b";',
+      'function foo() {',
+      '  var b = "c",',
+      '      d = "f";',
+      '  return a = b;',
+      '}'
+    ].join('\n'),
+    options: [false]
   }]
 });

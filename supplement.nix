@@ -1309,369 +1309,239 @@ let
         sha1 = "1bbf5ab1ba827af23575143490426455f481fe1e";
       };
     };
+    "browser-stdout-1.3.0" = {
+      name = "browser-stdout";
+      packageName = "browser-stdout";
+      version = "1.3.0";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/browser-stdout/-/browser-stdout-1.3.0.tgz";
+        sha1 = "f351d32969d32fa5d7a5567154263d928ae3bd1f";
+      };
+    };
+    "commander-2.9.0" = {
+      name = "commander";
+      packageName = "commander";
+      version = "2.9.0";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/commander/-/commander-2.9.0.tgz";
+        sha1 = "9c99094176e12240cb22d6c5146098400fe0f7d4";
+      };
+    };
+    "glob-7.0.5" = {
+      name = "glob";
+      packageName = "glob";
+      version = "7.0.5";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/glob/-/glob-7.0.5.tgz";
+        sha1 = "b4202a69099bbb4d292a7c1b95b6682b67ebdc95";
+      };
+    };
+    "json3-3.3.2" = {
+      name = "json3";
+      packageName = "json3";
+      version = "3.3.2";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/json3/-/json3-3.3.2.tgz";
+        sha1 = "3c0434743df93e2f5c42aee7b19bcb483575f4e1";
+      };
+    };
+    "lodash.create-3.1.1" = {
+      name = "lodash.create";
+      packageName = "lodash.create";
+      version = "3.1.1";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/lodash.create/-/lodash.create-3.1.1.tgz";
+        sha1 = "d7f2849f0dbda7e04682bb8cd72ab022461debe7";
+      };
+    };
+    "supports-color-3.1.2" = {
+      name = "supports-color";
+      packageName = "supports-color";
+      version = "3.1.2";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/supports-color/-/supports-color-3.1.2.tgz";
+        sha1 = "72a262894d9d408b956ca05ff37b2ed8a6e2a2d5";
+      };
+    };
+    "graceful-readlink-1.0.1" = {
+      name = "graceful-readlink";
+      packageName = "graceful-readlink";
+      version = "1.0.1";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/graceful-readlink/-/graceful-readlink-1.0.1.tgz";
+        sha1 = "4cafad76bc62f02fa039b2f94e9a3dd3a391a725";
+      };
+    };
+    "lodash._baseassign-3.2.0" = {
+      name = "lodash._baseassign";
+      packageName = "lodash._baseassign";
+      version = "3.2.0";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/lodash._baseassign/-/lodash._baseassign-3.2.0.tgz";
+        sha1 = "8c38a099500f215ad09e59f1722fd0c52bfe0a4e";
+      };
+    };
+    "lodash._basecreate-3.0.3" = {
+      name = "lodash._basecreate";
+      packageName = "lodash._basecreate";
+      version = "3.0.3";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/lodash._basecreate/-/lodash._basecreate-3.0.3.tgz";
+        sha1 = "1bc661614daa7fc311b7d03bf16806a0213cf821";
+      };
+    };
+    "lodash._isiterateecall-3.0.9" = {
+      name = "lodash._isiterateecall";
+      packageName = "lodash._isiterateecall";
+      version = "3.0.9";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/lodash._isiterateecall/-/lodash._isiterateecall-3.0.9.tgz";
+        sha1 = "5203ad7ba425fae842460e696db9cf3e6aac057c";
+      };
+    };
+    "lodash._basecopy-3.0.1" = {
+      name = "lodash._basecopy";
+      packageName = "lodash._basecopy";
+      version = "3.0.1";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/lodash._basecopy/-/lodash._basecopy-3.0.1.tgz";
+        sha1 = "8da0e6a876cf344c0ad8a54882111dd3c5c7ca36";
+      };
+    };
+    "lodash.keys-3.1.2" = {
+      name = "lodash.keys";
+      packageName = "lodash.keys";
+      version = "3.1.2";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/lodash.keys/-/lodash.keys-3.1.2.tgz";
+        sha1 = "4dbc0472b156be50a0b286855d1bd0b0c656098a";
+      };
+    };
+    "lodash._getnative-3.9.1" = {
+      name = "lodash._getnative";
+      packageName = "lodash._getnative";
+      version = "3.9.1";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/lodash._getnative/-/lodash._getnative-3.9.1.tgz";
+        sha1 = "570bc7dede46d61cdcde687d65d3eecbaa3aaff5";
+      };
+    };
+    "lodash.isarguments-3.1.0" = {
+      name = "lodash.isarguments";
+      packageName = "lodash.isarguments";
+      version = "3.1.0";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/lodash.isarguments/-/lodash.isarguments-3.1.0.tgz";
+        sha1 = "2f573d85c6a24289ff00663b491c1d338ff3458a";
+      };
+    };
+    "lodash.isarray-3.0.4" = {
+      name = "lodash.isarray";
+      packageName = "lodash.isarray";
+      version = "3.0.4";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/lodash.isarray/-/lodash.isarray-3.0.4.tgz";
+        sha1 = "79e4eb88c36a8122af86f844aa9bcd851b5fbb55";
+      };
+    };
+    "has-flag-1.0.0" = {
+      name = "has-flag";
+      packageName = "has-flag";
+      version = "1.0.0";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/has-flag/-/has-flag-1.0.0.tgz";
+        sha1 = "9d9e793165ce017a00f00418c43f942a7b1d11fa";
+      };
+    };
   };
-  args = {
-    name = "eslint-plugin-varspacing";
-    packageName = "eslint-plugin-varspacing";
-    version = "1.0.3";
-    src = ./.;
+in
+{
+  mocha = nodeEnv.buildNodePackage {
+    name = "mocha";
+    packageName = "mocha";
+    version = "3.2.0";
+    src = fetchurl {
+      url = "https://registry.npmjs.org/mocha/-/mocha-3.2.0.tgz";
+      sha1 = "7dc4f45e5088075171a68896814e6ae9eb7a85e3";
+    };
     dependencies = [
-      (sources."eslint-2.13.1" // {
+      sources."browser-stdout-1.3.0"
+      (sources."commander-2.9.0" // {
         dependencies = [
-          (sources."chalk-1.1.3" // {
+          sources."graceful-readlink-1.0.1"
+        ];
+      })
+      (sources."debug-2.2.0" // {
+        dependencies = [
+          sources."ms-0.7.1"
+        ];
+      })
+      sources."diff-1.4.0"
+      sources."escape-string-regexp-1.0.5"
+      (sources."glob-7.0.5" // {
+        dependencies = [
+          sources."fs.realpath-1.0.0"
+          (sources."inflight-1.0.6" // {
             dependencies = [
-              sources."ansi-styles-2.2.1"
-              sources."escape-string-regexp-1.0.5"
-              (sources."has-ansi-2.0.0" // {
-                dependencies = [
-                  sources."ansi-regex-2.1.1"
-                ];
-              })
-              (sources."strip-ansi-3.0.1" // {
-                dependencies = [
-                  sources."ansi-regex-2.1.1"
-                ];
-              })
-              sources."supports-color-2.0.0"
+              sources."wrappy-1.0.2"
             ];
           })
-          (sources."concat-stream-1.6.0" // {
+          sources."inherits-2.0.3"
+          (sources."minimatch-3.0.3" // {
             dependencies = [
-              sources."inherits-2.0.3"
-              sources."typedarray-0.0.6"
-              (sources."readable-stream-2.2.3" // {
+              (sources."brace-expansion-1.1.6" // {
                 dependencies = [
-                  sources."buffer-shims-1.0.0"
-                  sources."core-util-is-1.0.2"
-                  sources."isarray-1.0.0"
-                  sources."process-nextick-args-1.0.7"
-                  sources."string_decoder-0.10.31"
-                  sources."util-deprecate-1.0.2"
+                  sources."balanced-match-0.4.2"
+                  sources."concat-map-0.0.1"
                 ];
               })
             ];
           })
-          (sources."debug-2.6.1" // {
+          (sources."once-1.4.0" // {
             dependencies = [
-              sources."ms-0.7.2"
-            ];
-          })
-          (sources."doctrine-1.5.0" // {
-            dependencies = [
-              sources."isarray-1.0.0"
-            ];
-          })
-          (sources."es6-map-0.1.4" // {
-            dependencies = [
-              sources."d-0.1.1"
-              sources."es5-ext-0.10.12"
-              sources."es6-iterator-2.0.0"
-              sources."es6-set-0.1.4"
-              sources."es6-symbol-3.1.0"
-              sources."event-emitter-0.3.4"
-            ];
-          })
-          (sources."escope-3.6.0" // {
-            dependencies = [
-              (sources."es6-weak-map-2.0.1" // {
-                dependencies = [
-                  sources."d-0.1.1"
-                  sources."es5-ext-0.10.12"
-                  sources."es6-iterator-2.0.0"
-                  sources."es6-symbol-3.1.0"
-                ];
-              })
-              (sources."esrecurse-4.1.0" // {
-                dependencies = [
-                  sources."estraverse-4.1.1"
-                  sources."object-assign-4.1.1"
-                ];
-              })
-            ];
-          })
-          (sources."espree-3.4.0" // {
-            dependencies = [
-              sources."acorn-4.0.4"
-              (sources."acorn-jsx-3.0.1" // {
-                dependencies = [
-                  sources."acorn-3.3.0"
-                ];
-              })
-            ];
-          })
-          sources."estraverse-4.2.0"
-          sources."esutils-2.0.2"
-          (sources."file-entry-cache-1.3.1" // {
-            dependencies = [
-              (sources."flat-cache-1.2.2" // {
-                dependencies = [
-                  sources."circular-json-0.3.1"
-                  (sources."del-2.2.2" // {
-                    dependencies = [
-                      (sources."globby-5.0.0" // {
-                        dependencies = [
-                          (sources."array-union-1.0.2" // {
-                            dependencies = [
-                              sources."array-uniq-1.0.3"
-                            ];
-                          })
-                          sources."arrify-1.0.1"
-                        ];
-                      })
-                      sources."is-path-cwd-1.0.0"
-                      (sources."is-path-in-cwd-1.0.0" // {
-                        dependencies = [
-                          sources."is-path-inside-1.0.0"
-                        ];
-                      })
-                      sources."pify-2.3.0"
-                      (sources."pinkie-promise-2.0.1" // {
-                        dependencies = [
-                          sources."pinkie-2.0.4"
-                        ];
-                      })
-                      sources."rimraf-2.6.1"
-                    ];
-                  })
-                  sources."graceful-fs-4.1.11"
-                  sources."write-0.2.1"
-                ];
-              })
-              sources."object-assign-4.1.1"
-            ];
-          })
-          (sources."glob-7.1.1" // {
-            dependencies = [
-              sources."fs.realpath-1.0.0"
-              (sources."inflight-1.0.6" // {
-                dependencies = [
-                  sources."wrappy-1.0.2"
-                ];
-              })
-              sources."inherits-2.0.3"
-              (sources."minimatch-3.0.3" // {
-                dependencies = [
-                  (sources."brace-expansion-1.1.6" // {
-                    dependencies = [
-                      sources."balanced-match-0.4.2"
-                      sources."concat-map-0.0.1"
-                    ];
-                  })
-                ];
-              })
-              (sources."once-1.4.0" // {
-                dependencies = [
-                  sources."wrappy-1.0.2"
-                ];
-              })
-            ];
-          })
-          sources."globals-9.16.0"
-          sources."ignore-3.2.4"
-          sources."imurmurhash-0.1.4"
-          (sources."inquirer-0.12.0" // {
-            dependencies = [
-              sources."ansi-escapes-1.4.0"
-              sources."ansi-regex-2.1.1"
-              (sources."cli-cursor-1.0.2" // {
-                dependencies = [
-                  (sources."restore-cursor-1.0.1" // {
-                    dependencies = [
-                      sources."exit-hook-1.1.1"
-                      sources."onetime-1.1.0"
-                    ];
-                  })
-                ];
-              })
-              sources."cli-width-2.1.0"
-              (sources."figures-1.7.0" // {
-                dependencies = [
-                  sources."escape-string-regexp-1.0.5"
-                  sources."object-assign-4.1.1"
-                ];
-              })
-              (sources."readline2-1.0.1" // {
-                dependencies = [
-                  sources."code-point-at-1.1.0"
-                  (sources."is-fullwidth-code-point-1.0.0" // {
-                    dependencies = [
-                      sources."number-is-nan-1.0.1"
-                    ];
-                  })
-                  sources."mute-stream-0.0.5"
-                ];
-              })
-              (sources."run-async-0.1.0" // {
-                dependencies = [
-                  (sources."once-1.4.0" // {
-                    dependencies = [
-                      sources."wrappy-1.0.2"
-                    ];
-                  })
-                ];
-              })
-              sources."rx-lite-3.1.2"
-              (sources."string-width-1.0.2" // {
-                dependencies = [
-                  sources."code-point-at-1.1.0"
-                  (sources."is-fullwidth-code-point-1.0.0" // {
-                    dependencies = [
-                      sources."number-is-nan-1.0.1"
-                    ];
-                  })
-                ];
-              })
-              sources."strip-ansi-3.0.1"
-              sources."through-2.3.8"
-            ];
-          })
-          (sources."is-my-json-valid-2.16.0" // {
-            dependencies = [
-              sources."generate-function-2.0.0"
-              (sources."generate-object-property-1.2.0" // {
-                dependencies = [
-                  sources."is-property-1.0.2"
-                ];
-              })
-              sources."jsonpointer-4.0.1"
-              sources."xtend-4.0.1"
-            ];
-          })
-          (sources."is-resolvable-1.0.0" // {
-            dependencies = [
-              sources."tryit-1.0.3"
-            ];
-          })
-          (sources."js-yaml-3.8.2" // {
-            dependencies = [
-              (sources."argparse-1.0.9" // {
-                dependencies = [
-                  sources."sprintf-js-1.0.3"
-                ];
-              })
-              sources."esprima-3.1.3"
-            ];
-          })
-          (sources."json-stable-stringify-1.0.1" // {
-            dependencies = [
-              sources."jsonify-0.0.0"
-            ];
-          })
-          (sources."levn-0.3.0" // {
-            dependencies = [
-              sources."prelude-ls-1.1.2"
-              sources."type-check-0.3.2"
-            ];
-          })
-          sources."lodash-4.17.4"
-          (sources."mkdirp-0.5.1" // {
-            dependencies = [
-              sources."minimist-0.0.8"
-            ];
-          })
-          (sources."optionator-0.8.2" // {
-            dependencies = [
-              sources."prelude-ls-1.1.2"
-              sources."deep-is-0.1.3"
-              sources."wordwrap-1.0.0"
-              sources."type-check-0.3.2"
-              sources."fast-levenshtein-2.0.6"
+              sources."wrappy-1.0.2"
             ];
           })
           sources."path-is-absolute-1.0.1"
-          sources."path-is-inside-1.0.2"
-          sources."pluralize-1.2.1"
-          sources."progress-1.1.8"
-          (sources."require-uncached-1.0.3" // {
-            dependencies = [
-              (sources."caller-path-0.1.0" // {
-                dependencies = [
-                  sources."callsites-0.2.0"
-                ];
-              })
-              sources."resolve-from-1.0.1"
-            ];
-          })
-          sources."shelljs-0.6.1"
-          sources."strip-json-comments-1.0.4"
-          (sources."table-3.8.3" // {
-            dependencies = [
-              (sources."ajv-4.11.4" // {
-                dependencies = [
-                  sources."co-4.6.0"
-                ];
-              })
-              sources."ajv-keywords-1.5.1"
-              sources."slice-ansi-0.0.4"
-              (sources."string-width-2.0.0" // {
-                dependencies = [
-                  sources."is-fullwidth-code-point-2.0.0"
-                  (sources."strip-ansi-3.0.1" // {
-                    dependencies = [
-                      sources."ansi-regex-2.1.1"
-                    ];
-                  })
-                ];
-              })
-            ];
-          })
-          sources."text-table-0.2.0"
-          (sources."user-home-2.0.0" // {
-            dependencies = [
-              sources."os-homedir-1.0.2"
-            ];
-          })
         ];
       })
-      (sources."mocha-2.5.3" // {
+      sources."growl-1.9.2"
+      sources."json3-3.3.2"
+      (sources."lodash.create-3.1.1" // {
         dependencies = [
-          sources."commander-2.3.0"
-          (sources."debug-2.2.0" // {
+          (sources."lodash._baseassign-3.2.0" // {
             dependencies = [
-              sources."ms-0.7.1"
-            ];
-          })
-          sources."diff-1.4.0"
-          sources."escape-string-regexp-1.0.2"
-          (sources."glob-3.2.11" // {
-            dependencies = [
-              sources."inherits-2.0.3"
-              (sources."minimatch-0.3.0" // {
+              sources."lodash._basecopy-3.0.1"
+              (sources."lodash.keys-3.1.2" // {
                 dependencies = [
-                  sources."lru-cache-2.7.3"
-                  sources."sigmund-1.0.1"
+                  sources."lodash._getnative-3.9.1"
+                  sources."lodash.isarguments-3.1.0"
+                  sources."lodash.isarray-3.0.4"
                 ];
               })
             ];
           })
-          sources."growl-1.9.2"
-          (sources."jade-0.26.3" // {
-            dependencies = [
-              sources."commander-0.6.1"
-              sources."mkdirp-0.3.0"
-            ];
-          })
-          (sources."mkdirp-0.5.1" // {
-            dependencies = [
-              sources."minimist-0.0.8"
-            ];
-          })
-          sources."supports-color-1.2.0"
-          sources."to-iso-string-0.0.2"
+          sources."lodash._basecreate-3.0.3"
+          sources."lodash._isiterateecall-3.0.9"
+        ];
+      })
+      (sources."mkdirp-0.5.1" // {
+        dependencies = [
+          sources."minimist-0.0.8"
+        ];
+      })
+      (sources."supports-color-3.1.2" // {
+        dependencies = [
+          sources."has-flag-1.0.0"
         ];
       })
     ];
     buildInputs = globalBuildInputs;
     meta = {
-      description = "A eslint rule for proper var spacing";
-      homepage = "https://github.com/Sententiaregum/eslint-plugin-varspacing#readme";
+      description = "simple, flexible, fun test framework";
+      homepage = https://mochajs.org/;
       license = "MIT";
     };
-    production = false;
+    production = true;
   };
-in
-{
-  tarball = nodeEnv.buildNodeSourceDist args;
-  package = nodeEnv.buildNodePackage args;
-  shell = nodeEnv.buildNodeShell args;
 }

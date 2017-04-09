@@ -429,7 +429,7 @@ ruleTester.run('var-spacing', rule, {
   }, {
     code: [
       'const { foo, bar } = obj;',
-      'var foo, bar       = [];'
+      'var abc, def       = [];'
     ].join('\n'),
     parserOptions: {
       ecmaVersion: 6
@@ -445,7 +445,7 @@ ruleTester.run('var-spacing', rule, {
   }, {
     code: [
       'const { foo, bar } = obj;',
-      'let { foo, bar }   = [];'
+      'let { abc, def }   = [];'
     ].join('\n'),
     parserOptions: {
       ecmaVersion: 6
@@ -453,7 +453,7 @@ ruleTester.run('var-spacing', rule, {
   }, {
     code: [
       'const { foo, bar, baz } = obj;',
-      'const foo               = [];'
+      'const blub              = [];'
     ].join('\n'),
     parserOptions: {
       ecmaVersion: 6
@@ -461,7 +461,7 @@ ruleTester.run('var-spacing', rule, {
   }, {
     code: [
       'const { foo, bar } = obj;',
-      'const foo          = true ? [] : {};'
+      'const blub         = true ? [] : {};'
     ].join('\n'),
     parserOptions: {
       ecmaVersion: 6
@@ -469,7 +469,7 @@ ruleTester.run('var-spacing', rule, {
   }, {
     code: [
       'const { foo, bar } = true ? blah : foo;',
-      'const foo          = [];'
+      'const abc          = [];'
     ].join('\n'),
     parserOptions: {
       ecmaVersion: 6
@@ -477,7 +477,7 @@ ruleTester.run('var-spacing', rule, {
   }, {
     code: [
       'const { foo, bar } = obj.expr;',
-      'const foo          = {};'
+      'const blub         = {};'
     ].join('\n'),
     parserOptions: {
       ecmaVersion: 6
@@ -485,7 +485,7 @@ ruleTester.run('var-spacing', rule, {
   }, {
     code: [
       'const { foo, bar } = obj["expr"];',
-      'const foo          = {};'
+      'const blu          = {};'
     ].join('\n'),
     parserOptions: {
       ecmaVersion: 6
@@ -493,7 +493,7 @@ ruleTester.run('var-spacing', rule, {
   }, {
     code: [
       'const { foo, bar } = true ? obj.expr : obj["expr"];',
-      'const foo          = {};'
+      'const blub         = {};'
     ].join('\n'),
     parserOptions: {
       ecmaVersion: 6
@@ -1169,7 +1169,7 @@ ruleTester.run('var-spacing', rule, {
   }, {
     code: [
       'const { foo, bar } = obj;',
-      'var foo, bar = [];'
+      'var abc, def = [];'
     ].join('\n'),
     parserOptions: {
       ecmaVersion: 6
@@ -1187,7 +1187,7 @@ ruleTester.run('var-spacing', rule, {
   }, {
     code: [
       'const { foo, bar } = obj;',
-      'let { foo, bar } = [];'
+      'let { abc, def } = [];'
     ].join('\n'),
     parserOptions: {
       ecmaVersion: 6
@@ -1196,7 +1196,7 @@ ruleTester.run('var-spacing', rule, {
   }, {
     code: [
       'const { foo, bar, baz } = obj;',
-      'const foo = [];'
+      'const blub = [];'
     ].join('\n'),
     parserOptions: {
       ecmaVersion: 6
@@ -1205,7 +1205,7 @@ ruleTester.run('var-spacing', rule, {
   }, {
     code: [
       'const { foo, bar } = obj;',
-      'const foo = true ? [] : {};'
+      'const blub = true ? [] : {};'
     ].join('\n'),
     parserOptions: {
       ecmaVersion: 6
@@ -1214,7 +1214,7 @@ ruleTester.run('var-spacing', rule, {
   }, {
     code: [
       'const { foo, bar } = true ? blah : foo;',
-      'const foo = [];'
+      'const blub = [];'
     ].join('\n'),
     parserOptions: {
       ecmaVersion: 6
@@ -1223,7 +1223,7 @@ ruleTester.run('var-spacing', rule, {
   }, {
     code: [
       'const { foo, bar } = obj.expr;',
-      'const foo = {};'
+      'const blub = {};'
     ].join('\n'),
     parserOptions: {
       ecmaVersion: 6
@@ -1232,7 +1232,7 @@ ruleTester.run('var-spacing', rule, {
   }, {
     code: [
       'const { foo, bar } = obj["expr"];',
-      'const foo = {};'
+      'const blub = {};'
     ].join('\n'),
     parserOptions: {
       ecmaVersion: 6
@@ -1241,7 +1241,7 @@ ruleTester.run('var-spacing', rule, {
   }, {
     code: [
       'const { foo, bar } = true ? obj.expr : obj["expr"];',
-      'const foo = {};'
+      'const blub = {};'
     ].join('\n'),
     parserOptions: {
       ecmaVersion: 6
@@ -2016,7 +2016,7 @@ ruleTester.run('var-spacing', rule, {
   }, {
     code: [
       'const { foo, bar } = obj;',
-      'const foo = [];'
+      'const blub = [];'
     ].join('\n'),
     parserOptions: {
       ecmaVersion: 6
@@ -2026,7 +2026,7 @@ ruleTester.run('var-spacing', rule, {
     }],
     output: [
       'const { foo, bar } = obj;',
-      'const foo          = [];'
+      'const blub         = [];'
     ].join('\n')
   }, {
     code: [
@@ -2061,7 +2061,7 @@ ruleTester.run('var-spacing', rule, {
   }, {
     code: [
       'const { foo, bar } = obj;',
-      'var foo, bar = [];'
+      'var abc, def = [];'
     ].join('\n'),
     parserOptions: {
       ecmaVersion: 6
@@ -2071,7 +2071,7 @@ ruleTester.run('var-spacing', rule, {
     }],
     output: [
       'const { foo, bar } = obj;',
-      'var foo, bar       = [];'
+      'var abc, def       = [];'
     ].join('\n')
   }, {
     code: [
@@ -2091,7 +2091,7 @@ ruleTester.run('var-spacing', rule, {
   }, {
     code: [
       'const { foo, bar } = obj;',
-      'let { foo, bar } = [];'
+      'let { blub, abc } = [];'
     ].join('\n'),
     parserOptions: {
       ecmaVersion: 6
@@ -2101,12 +2101,12 @@ ruleTester.run('var-spacing', rule, {
     }],
     output: [
       'const { foo, bar } = obj;',
-      'let { foo, bar }   = [];'
+      'let { blub, abc }  = [];'
     ].join('\n')
   }, {
     code: [
       'const { foo, bar, baz } = obj;',
-      'const foo = [];'
+      'const blub = [];'
     ].join('\n'),
     parserOptions: {
       ecmaVersion: 6
@@ -2116,12 +2116,12 @@ ruleTester.run('var-spacing', rule, {
     }],
     output: [
       'const { foo, bar, baz } = obj;',
-      'const foo               = [];'
+      'const blub              = [];'
     ].join('\n')
   }, {
     code: [
       'const { foo, bar } = obj;',
-      'const foo = true ? [] : {};'
+      'const blub = true ? [] : {};'
     ].join('\n'),
     parserOptions: {
       ecmaVersion: 6
@@ -2131,12 +2131,12 @@ ruleTester.run('var-spacing', rule, {
     }],
     output: [
       'const { foo, bar } = obj;',
-      'const foo          = true ? [] : {};'
+      'const blub         = true ? [] : {};'
     ].join('\n')
   }, {
     code: [
       'const { foo, bar } = true ? blah : foo;',
-      'const foo = [];'
+      'const blub = [];'
     ].join('\n'),
     parserOptions: {
       ecmaVersion: 6
@@ -2146,12 +2146,12 @@ ruleTester.run('var-spacing', rule, {
     }],
     output: [
       'const { foo, bar } = true ? blah : foo;',
-      'const foo          = [];'
+      'const blub         = [];'
     ].join('\n')
   }, {
     code: [
       'const { foo, bar } = obj.expr;',
-      'const foo = {};'
+      'const blub = {};'
     ].join('\n'),
     parserOptions: {
       ecmaVersion: 6
@@ -2161,12 +2161,12 @@ ruleTester.run('var-spacing', rule, {
     }],
     output: [
       'const { foo, bar } = obj.expr;',
-      'const foo          = {};'
+      'const blub         = {};'
     ].join('\n')
   }, {
     code: [
       'const { foo, bar } = obj["expr"];',
-      'const foo = {};'
+      'const blub = {};'
     ].join('\n'),
     parserOptions: {
       ecmaVersion: 6
@@ -2176,12 +2176,12 @@ ruleTester.run('var-spacing', rule, {
     }],
     output: [
       'const { foo, bar } = obj["expr"];',
-      'const foo          = {};'
+      'const blub         = {};'
     ].join('\n')
   }, {
     code: [
       'const { foo, bar } = true ? obj.expr : obj["expr"];',
-      'const foo = {};'
+      'const blub = {};'
     ].join('\n'),
     parserOptions: {
       ecmaVersion: 6
@@ -2191,12 +2191,12 @@ ruleTester.run('var-spacing', rule, {
     }],
     output: [
       'const { foo, bar } = true ? obj.expr : obj["expr"];',
-      'const foo          = {};'
+      'const blub         = {};'
     ].join('\n')
   }, {
     code: [
       'const { foo, bar }    = blah;',
-      'let { foo, blah }     = muh;'
+      'let { blub, blah }    = muh;'
     ].join('\n'),
     parserOptions: {
       ecmaVersion: 6
@@ -2208,7 +2208,7 @@ ruleTester.run('var-spacing', rule, {
     }],
     output: [
       'const { foo, bar } = blah;',
-      'let { foo, blah }  = muh;'
+      'let { blub, blah } = muh;'
     ].join('\n')
   }, {
     code: [
@@ -2563,7 +2563,7 @@ ruleTester.run('var-spacing', rule, {
   }, {
     code: [
       'const { foo, bar } = obj;',
-      'const foo         = [];'
+      'const blub         = [];'
     ].join('\n'),
     parserOptions: {
       ecmaVersion: 6
@@ -2573,7 +2573,7 @@ ruleTester.run('var-spacing', rule, {
     }],
     output: [
       'const { foo, bar } = obj;',
-      'const foo = [];'
+      'const blub = [];'
     ].join('\n'),
     options: [false]
   }, {
@@ -2611,7 +2611,7 @@ ruleTester.run('var-spacing', rule, {
   }, {
     code: [
       'const { foo, bar } = obj;',
-      'var foo, bar       = [];'
+      'var blub, abc       = [];'
     ].join('\n'),
     parserOptions: {
       ecmaVersion: 6
@@ -2621,7 +2621,7 @@ ruleTester.run('var-spacing', rule, {
     }],
     output: [
       'const { foo, bar } = obj;',
-      'var foo, bar = [];'
+      'var blub, abc = [];'
     ].join('\n'),
     options: [false]
   }, {
@@ -2643,7 +2643,7 @@ ruleTester.run('var-spacing', rule, {
   }, {
     code: [
       'const { foo, bar } = obj;',
-      'let { foo, bar }  = [];'
+      'let { blub, abc }  = [];'
     ].join('\n'),
     parserOptions: {
       ecmaVersion: 6
@@ -2653,13 +2653,13 @@ ruleTester.run('var-spacing', rule, {
     }],
     output: [
       'const { foo, bar } = obj;',
-      'let { foo, bar } = [];'
+      'let { blub, abc } = [];'
     ].join('\n'),
     options: [false]
   }, {
     code: [
       'const { foo, bar, baz } = obj;',
-      'const foo               = [];'
+      'const blub              = [];'
     ].join('\n'),
     parserOptions: {
       ecmaVersion: 6
@@ -2669,13 +2669,13 @@ ruleTester.run('var-spacing', rule, {
     }],
     output: [
       'const { foo, bar, baz } = obj;',
-      'const foo = [];'
+      'const blub = [];'
     ].join('\n'),
     options: [false]
   }, {
     code: [
       'const { foo, bar } = obj;',
-      'const foo          = true ? [] : {};'
+      'const blub         = true ? [] : {};'
     ].join('\n'),
     parserOptions: {
       ecmaVersion: 6
@@ -2685,13 +2685,13 @@ ruleTester.run('var-spacing', rule, {
     }],
     output: [
       'const { foo, bar } = obj;',
-      'const foo = true ? [] : {};'
+      'const blub = true ? [] : {};'
     ].join('\n'),
     options: [false]
   }, {
     code: [
       'const { foo, bar } = true ? blah : foo;',
-      'const foo          = [];'
+      'const blub          = [];'
     ].join('\n'),
     parserOptions: {
       ecmaVersion: 6
@@ -2702,12 +2702,12 @@ ruleTester.run('var-spacing', rule, {
     }],
     output: [
       'const { foo, bar } = true ? blah : foo;',
-      'const foo = [];'
+      'const blub = [];'
     ].join('\n')
   }, {
     code: [
       'const { foo, bar } = obj.expr;',
-      'const foo          = {};'
+      'const blub         = {};'
     ].join('\n'),
     parserOptions: {
       ecmaVersion: 6
@@ -2718,7 +2718,7 @@ ruleTester.run('var-spacing', rule, {
     options: [false],
     output: [
       'const { foo, bar } = obj.expr;',
-      'const foo = {};'
+      'const blub = {};'
     ].join('\n')
   }, {
     code: [

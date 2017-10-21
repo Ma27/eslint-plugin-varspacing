@@ -598,7 +598,7 @@ ruleTester.run('var-spacing', rule, {
       '    bar; _store = [];' // var assignment at same line with `_store` assignment
     ].join('\n')
   }, {
-    // https://github.com/Sententiaregum/eslint-plugin-varspacing/issues/26
+    // https://github.com/Ma27/eslint-plugin-varspacing/issues/26
     code: [
       'var test = "banana";',
       'switch (test) {',
@@ -1365,7 +1365,7 @@ ruleTester.run('var-spacing', rule, {
     ].join('\n'),
     options: [false]
   }, {
-    // https://github.com/Sententiaregum/eslint-plugin-varspacing/issues/26
+    // https://github.com/Ma27/eslint-plugin-varspacing/issues/26
     code: [
       'var test = "banana";',
       'switch (test) {',
@@ -2407,7 +2407,7 @@ ruleTester.run('var-spacing', rule, {
       '}'
     ].join('\n')
   },
-  // https://github.com/Sententiaregum/eslint-plugin-varspacing/issues/26
+  // https://github.com/Ma27/eslint-plugin-varspacing/issues/26
   {
     code: [
       'var foo = "apple";',

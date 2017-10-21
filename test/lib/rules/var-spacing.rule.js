@@ -2743,5 +2743,17 @@ ruleTester.run('var-spacing', rule, {
       '}'
     ].join('\n'),
     options: [false]
+  }, {
+    code: [
+      'var a = "b";',
+      '/* informational comment */',
+      'var abc = "def";'
+    ].join('\n'),
+    errors: [{ message: 'Invalid indent!' }],
+    output: [
+      'var a   = "b";',
+      '/* informational comment */',
+      'var abc = "def";'
+    ].join('\n')
   }]
 });

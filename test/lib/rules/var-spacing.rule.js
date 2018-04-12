@@ -1453,6 +1453,20 @@ ruleTester.run('var-spacing', rule, {
       '}'
     ].join('\n'),
     options: [false]
+  }, {
+    code: [
+      'if (a)',
+      'b = c;',
+      'd = f;'
+    ].join('\n')
+  }, {
+    code: [
+      'if(true) a = 1;',
+      'const value2 = {};'
+    ].join('\n'),
+    parserOptions: {
+      ecmaVersion: 6
+    },
   }],
   invalid: [{
     code: [

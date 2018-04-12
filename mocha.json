@@ -1,1 +1,1 @@
-["mocha", "eslint"]
+["mocha", "eslint", "node2nix"]

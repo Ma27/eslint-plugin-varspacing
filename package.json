@@ -24,8 +24,8 @@
   },
   "homepage": "https://github.com/Ma27/eslint-plugin-varspacing#readme",
   "devDependencies": {
-    "eslint": "^2.6.0",
-    "mocha": "^2.4.5"
+    "eslint": "^4.19",
+    "mocha": "^5.0.5"
   },
   "engines": {
     "node": ">=6.0.0"

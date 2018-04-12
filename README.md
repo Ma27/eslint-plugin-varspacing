@@ -11,13 +11,13 @@ This plugin aims to implement a eslint rule like ``object-spacing``, but for var
 
 ## Installation
 
-Install [ESLint](https://github.com/eslint/eslint) and this plugin globally:
+Install [ESLint](https://github.com/eslint/eslint) and this plugin into
+your project:
 
 ``` code
-npm install -g eslint eslint-plugin-varspacing
+npm i --save-dev eslint eslint eslint-plugin-varspacing
+npx eslint
 ```
-
-If you'd like to install ``ESLint`` locally, this plugin must be installed locally, too.
 
 ## Configuration
 
@@ -27,16 +27,7 @@ This plugin must be added to the ``plugins`` section in the ``.eslintrc``:
 {
   "plugins": [
     "varspacing"
-  ]
-}
-```
-
-## Use rules
-
-This plugin contains one rule only, the ``var-spacing`` rule:
-
-``` json
-{
+  ],
   "extends": "plugin:varspacing/recommended"
 }
 ```
@@ -51,7 +42,13 @@ It's possible to use this module with the `nix` package manager based on `node2n
 A shell with a `node` instance and all loaded `npm` dependencies can be opened using the following command:
 
 ``` shell
-nix-shell -A shell
+nix-shell
+```
+
+Furthermore it's possible to actually build the package:
+
+```
+nix build -f . -A package
 ```
 
 ## License
